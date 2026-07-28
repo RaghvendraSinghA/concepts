@@ -374,7 +374,7 @@ ON e.manager_id = m.employee_id;
 
 # 5. SQL Aggregations
 
-Aggregate functions perform calculations on multiple rows.
+Aggregate functions perform calculations on a group of rows and return a single result.
 
 ---
 
@@ -443,7 +443,7 @@ FROM Employees;
 
 ## GROUP BY
 
-Groups similar rows.
+GROUP BY groups rows with the same value and applies aggregate functions to each group.
 
 Average salary by department.
 
@@ -467,7 +467,7 @@ Output
 
 ## HAVING
 
-Filters grouped results.
+HAVING filters groups after aggregation.Like after Group-by.
 
 Departments whose average salary exceeds 60,000.
 
