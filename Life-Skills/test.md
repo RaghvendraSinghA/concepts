@@ -9,3 +9,6 @@ How to create table?
 
 ---
 
+how to create note?
+Ans-->
+>  Note 
