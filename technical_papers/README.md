@@ -4,4 +4,4 @@ Hi, this repository have technical papers related to Python and OOPS.
 
 2. python_tech_paper (python, pep8 , overview of OOPS etc.)
 
-3. soli_tech_paper (SOLID principles)
+3. solid_tech_paper (SOLID principles)
