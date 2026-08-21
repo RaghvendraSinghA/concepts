@@ -13,6 +13,7 @@ This paper provides a practical overview and cheatsheet covering commonly used P
 5. Virtual environments
 6. The `pip` package manager
 7. PEP 8 coding standards
+8. References
 
 ---
 
@@ -33,9 +34,7 @@ from array import array
 
 numbers = array('i', [10, 20, 30])
 ```
-
-For most applications, Python lists are the standard choice.
-
+    'i' means the array stores signed integers
 ---
 
 ## 1.2 Common List Methods
@@ -46,19 +45,10 @@ Adds one item to the end of a list.
 
 ```python
 numbers = [1, 2, 3]
-
 numbers.append(4)
 
-print(numbers)
+print(numbers) #op-> [1, 2, 3, 4]
 ```
-
-Output:
-
-```text
-[1, 2, 3, 4]
-```
-
----
 
 ### `extend()`
 
@@ -66,19 +56,10 @@ Adds multiple elements from an iterable.
 
 ```python
 numbers = [1, 2, 3]
-
 numbers.extend([4, 5, 6])
 
-print(numbers)
+print(numbers) #op-> [1, 2, 3, 4, 5, 6]
 ```
-
-Output:
-
-```text
-[1, 2, 3, 4, 5, 6]
-```
-
----
 
 ### `insert()`
 
@@ -86,16 +67,9 @@ Inserts an item at a specified index.
 
 ```python
 numbers = [1, 2, 4]
-
 numbers.insert(2, 3)
 
-print(numbers)
-```
-
-Output:
-
-```text
-[1, 2, 3, 4]
+print(numbers) #op-> [1, 2, 3, 4]
 ```
 
 ---
@@ -106,16 +80,9 @@ Removes the first matching value.
 
 ```python
 numbers = [1, 2, 3, 2]
-
 numbers.remove(2)
 
-print(numbers)
-```
-
-Output:
-
-```text
-[1, 3, 2]
+print(numbers)    #op->[1, 3, 2]
 ```
 
 If the value does not exist, Python raises a `ValueError`.
@@ -131,18 +98,11 @@ numbers = [10, 20, 30]
 
 value = numbers.pop()
 
-print(value)
-print(numbers)
+print(value)    #op->30
+print(numbers)    #op->[10, 20]
 ```
 
-Output:
-
-```text
-30
-[10, 20]
-```
-
-An index can also be specified:
+An index can also be also used:
 
 ```python
 numbers.pop(0)
@@ -156,17 +116,11 @@ Removes all elements.
 
 ```python
 numbers = [1, 2, 3]
-
 numbers.clear()
 
-print(numbers)
+print(numbers) #op->[]
 ```
 
-Output:
-
-```text
-[]
-```
 
 ---
 
@@ -176,14 +130,7 @@ Returns the index of the first matching element.
 
 ```python
 numbers = [10, 20, 30]
-
-print(numbers.index(20))
-```
-
-Output:
-
-```text
-1
+print(numbers.index(20)) #op->1
 ```
 
 ---
@@ -195,13 +142,7 @@ Counts how many times an element occurs.
 ```python
 numbers = [1, 2, 2, 3, 2]
 
-print(numbers.count(2))
-```
-
-Output:
-
-```text
-3
+print(numbers.count(2))    #op->3
 ```
 
 ---
@@ -212,32 +153,26 @@ Sorts the original list.
 
 ```python
 numbers = [4, 1, 3, 2]
-
 numbers.sort()
 
-print(numbers)
-```
-
-Output:are
-
-```text
-[1, 2, 3, 4]
+print(numbers)    #op->[1, 2, 3, 4]
 ```
 
 Descending order:
 
 ```python
 numbers.sort(reverse=True)
+
+#it doesn't return new array.
 ```
 
 Custom sorting:
 
 ```python
 words = ["banana", "kiwi", "apple"]
-
 words.sort(key=len)
 
-print(words)
+print(words)    #op->['kiwi', 'apple', 'banana']
 ```
 
 ---
@@ -250,16 +185,8 @@ Reverses the original list.
 numbers = [1, 2, 3]
 
 numbers.reverse()
-
-print(numbers)
+print(numbers)    op-->[3, 2, 1]
 ```
-
-Output:
-
-```text
-[3, 2, 1]
-```
-
 ---
 
 ### `copy()`
@@ -268,7 +195,6 @@ Creates a shallow copy of a list.
 
 ```python
 numbers = [1, 2, 3]
-
 new_numbers = numbers.copy()
 ```
 
@@ -291,38 +217,20 @@ list[start:stop:step]
 Examples:
 
 ```python
-numbers[1:4]
+numbers[1:4] #op->20, 30, 40]
 ```
-
-Output:
-
-```text
-[20, 30, 40]
-```
-
-Reverse a list:
-
-```python
-numbers[::-1]
-```
-
 ---
 
 # 2. String Methods
-
-## 2.1 Strings in Python
-
 A string is a sequence of Unicode characters.
 
 ```python
 name = "Python"
 ```
-
-Strings are **immutable**, meaning their characters cannot be modified directly.
+Strings are immutable, meaning their characters cannot be modified directly.
 
 ```python
 name = "Python"
-
 # name[0] = "J"  # TypeError
 ```
 
@@ -335,13 +243,7 @@ name = "Python"
 ```python
 text = "python"
 
-print(text.upper())
-```
-
-Output:
-
-```text
-PYTHON
+print(text.upper()) #op->PYTHON
 ```
 
 ### `lower()`
@@ -349,55 +251,7 @@ PYTHON
 ```python
 text = "PYTHON"
 
-print(text.lower())
-```
-
-Output:
-
-```text
-python
-```
-
-### `title()`
-
-```python
-text = "hello world"
-
-print(text.title())
-```
-
-Output:
-
-```text
-Hello World
-```
-
-### `capitalize()`
-
-```python
-text = "python programming"
-
-print(text.capitalize())
-```
-
-Output:
-
-```text
-Python programming
-```
-
-### `swapcase()`
-
-```python
-text = "PyThOn"
-
-print(text.swapcase())
-```
-
-Output:
-
-```text
-pYtHoN
+print(text.lower()) #op->python
 ```
 
 ---
@@ -411,23 +265,7 @@ Removes whitespace from both ends.
 ```python
 text = "  Python  "
 
-print(text.strip())
-```
-
-### `lstrip()`
-
-Removes whitespace from the left.
-
-```python
-text.lstrip()
-```
-
-### `rstrip()`
-
-Removes whitespace from the right.
-
-```python
-text.rstrip()
+print(text.strip()) #op-> Python
 ```
 
 ---
@@ -441,7 +279,7 @@ Returns the first index of a substring. Returns `-1` if not found.
 ```python
 text = "Hello Python"
 
-print(text.find("Python"))
+print(text.find("Python")) #op->6
 ```
 
 ### `index()`
@@ -449,17 +287,7 @@ print(text.find("Python"))
 Similar to `find()`, but raises a `ValueError` if the substring does not exist.
 
 ```python
-text.index("Python")
-```
-
-### `count()`
-
-Counts occurrences.
-
-```python
-text = "banana"
-
-print(text.count("a"))
+text.index("Python") #op->6
 ```
 
 ### `startswith()`
@@ -467,13 +295,13 @@ print(text.count("a"))
 ```python
 text = "Python"
 
-print(text.startswith("Py"))
+print(text.startswith("Py")) #op-> True
 ```
 
 ### `endswith()`
 
 ```python
-print(text.endswith("on"))
+print(text.endswith("on"))    #op->True
 ```
 
 ---
@@ -484,10 +312,9 @@ print(text.endswith("on"))
 
 ```python
 text = "I like Java"
-
 new_text = text.replace("Java", "Python")
 
-print(new_text)
+print(new_text) #op->"I like Python"
 ```
 
 ### `split()`
@@ -496,16 +323,9 @@ Converts a string into a list.
 
 ```python
 text = "apple,banana,mango"
-
-fruits = text.split(",")
+fruits = text.split(",") #op->['apple', 'banana', 'mango']
 
 print(fruits)
-```
-
-Output:
-
-```text
-['apple', 'banana', 'mango']
 ```
 
 ### `join()`
@@ -514,52 +334,31 @@ Combines iterable elements into a string.
 
 ```python
 fruits = ["apple", "banana", "mango"]
-
 result = ", ".join(fruits)
 
-print(result)
-```
-
-Output:
-
-```text
-apple, banana, mango
+print(result) #op->apple, banana, mango
 ```
 
 ---
 
-## 2.6 String Validation Methods
 
-| Method      | Purpose                                          |
-| ----------- | ------------------------------------------------ |
-| `isalpha()` | Checks whether all characters are alphabetic     |
-| `isdigit()` | Checks whether all characters are digits         |
-| `isalnum()` | Checks whether characters are letters or numbers |
-| `isspace()` | Checks whether characters are whitespace         |
-| `islower()` | Checks whether characters are lowercase          |
-| `isupper()` | Checks whether characters are uppercase          |
 
 Example:
 
 ```python
 value = "123"
 
-print(value.isdigit())
-```
+print(value.isdigit()) #op->True
 
-Output:
-
-```text
-True
+Checks if string all characters are integer.
 ```
 
 ---
-
-# 3. Objects and Object-Oriented Programming
+# 3. Object-Oriented Programming
 
 ## 3.1 What Is Object-Oriented Programming?
 
-Object-Oriented Programming, commonly called **OOP**, is a programming paradigm that organizes code using **objects** and **classes**.
+Object-Oriented Programming, commonly called OOP, is a programming paradigm that organizes code using objects and Classes
 
 A class acts as a blueprint.
 
@@ -619,16 +418,12 @@ class BankAccount:
 
     def display_balance(self):
         print(self.balance)
-```
 
-Usage:
-
-```python
 account = BankAccount(1000)
 
 account.deposit(500)
 
-account.display_balance()
+account.display_balance()    #op-> 1500
 ```
 
 ---
@@ -648,22 +443,22 @@ class Employee:
 employee1 = Employee("Ravi")
 employee2 = Employee("Amit")
 
-print(employee1.company)
-print(employee2.company)
+print(employee1.company)        #op-> ABC Technologies
+print(employee2.company)        #op-> ABC Technologies
 ```
 
 ---
 
 ## 3.5 Encapsulation
 
-Encapsulation means bundling data and behavior together and controlling access to implementation details.
+Encapsulation means bundling data and behaviour together and controlling access to implementation details.
 
 Python uses naming conventions for non-public attributes.
 
 ```python
 class BankAccount:
     def __init__(self, balance):
-        self._balance = balance
+        self._balance = balance        # _ -> means protected, no error can access.
 ```
 
 A double underscore triggers name mangling:
@@ -671,7 +466,8 @@ A double underscore triggers name mangling:
 ```python
 class BankAccount:
     def __init__(self, balance):
-        self.__balance = balance
+        self.__balance = balance       # __ -> means private, error on access.
+                                       #. but, with mangling we can access it.
 ```
 
 However, Python does not enforce traditional private access in the same way as some other languages.
@@ -698,13 +494,7 @@ Usage:
 ```python
 dog = Dog()
 
-dog.speak()
-```
-
-Output:
-
-```text
-Dog barks
+dog.speak()       #op-> Dog barks
 ```
 
 A child class can access parent functionality using `super()`.
@@ -756,6 +546,7 @@ Meow
 ## 3.8 Abstraction
 
 Abstraction means exposing essential behavior while hiding unnecessary implementation details.
+Abstract classes have contracts which child class have to fill if they want to inherit from that abstract class.
 
 Python can use the `abc` module.
 
@@ -775,17 +566,6 @@ class CreditCardPayment(Payment):
     def pay(self):
         print("Payment completed")
 ```
-
----
-
-## 3.9 OOP Principles Summary
-
-| Principle     | Description                           |
-| ------------- | ------------------------------------- |
-| Encapsulation | Bundles data and methods together     |
-| Inheritance   | Allows classes to reuse functionality |
-| Polymorphism  | Same interface, different behavior    |
-| Abstraction   | Hides implementation details          |
 
 ---
 
@@ -925,11 +705,6 @@ Decorators are commonly used for:
 
 * Logging
 * Authentication and authorization
-* Performance measurement
-* Caching
-* Input validation
-* Retry mechanisms
-* Framework functionality
 
 Examples in Python include:
 
@@ -992,12 +767,6 @@ source .venv/bin/activate
 .venv\Scripts\activate
 ```
 
-### Windows PowerShell
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
 After activation, the terminal usually displays the environment name.
 
 ```text
@@ -1020,11 +789,7 @@ Virtual environments provide:
 
 * Dependency isolation
 * Project-specific package versions
-* Better reproducibility
-* Reduced conflicts between projects
 * Cleaner development environments
-
-A recommended practice is to create a virtual environment for each Python project.
 
 ---
 
@@ -1040,19 +805,6 @@ Example:
 pip install matplotlib
 ```
 
-On some systems:
-
-```bash
-pip3 install matplotlib
-```
-
-A more reliable approach is:
-
-```bash
-python3 -m pip install matplotlib
-```
-
-This ensures that `pip` belongs to the Python interpreter being used.
 
 ---
 
@@ -1072,15 +824,7 @@ python3 -m pip install requests==2.31.0
 
 ---
 
-## 6.4 Upgrading a Package
-
-```bash
-python3 -m pip install --upgrade requests
-```
-
----
-
-## 6.5 Uninstalling a Package
+## 6.4 Uninstalling a Package
 
 ```bash
 python3 -m pip uninstall requests
@@ -1088,55 +832,28 @@ python3 -m pip uninstall requests
 
 ---
 
-## 6.6 Viewing Installed Packages
+## 6.5 Viewing Installed Packages
 
 ```bash
 python3 -m pip list
 ```
-
 ---
 
-## 6.7 Viewing Package Information
 
-```bash
-python3 -m pip show matplotlib
-```
-
----
-
-## 6.8 Checking Outdated Packages
-
-```bash
-python3 -m pip list --outdated
-```
-
----
-
-## 6.9 Creating a Requirements File
+## 6.6 Creating a Requirements File
 
 A project can store its dependencies in a `requirements.txt` file.
 
 ```bash
 python3 -m pip freeze > requirements.txt
 ```
-
-Example:
-
-```text
-matplotlib==3.10.0
-numpy==2.2.0
-pandas==2.2.3
-```
-
 ---
 
-## 6.10 Installing Dependencies from a File
+## 6.7 Installing Dependencies from a File
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
-
-This makes it easier for another developer to reproduce the same project environment.
 
 ---
 
@@ -1147,8 +864,6 @@ This makes it easier for another developer to reproduce the same project environ
 PEP stands for **Python Enhancement Proposal**.
 
 PEP 8 is Python's official style guide for writing readable and consistent Python code. Its purpose is to improve code readability and maintainability.
-
-PEP 8 is primarily a style guide rather than a set of rules enforced by the Python interpreter.
 
 ---
 
@@ -1162,8 +877,6 @@ Correct:
 if age >= 18:
     print("Adult")
 ```
-
-Avoid mixing tabs and spaces.
 
 ---
 
@@ -1258,12 +971,6 @@ self.__balance
 
 Imports should normally be placed at the top of a module.
 
-Recommended organization:
-
-1. Standard library imports
-2. Related third-party imports
-3. Local application imports
-
 Example:
 
 ```python
@@ -1325,18 +1032,11 @@ def calculate_average(numbers):
 
 ## 7.10 Comments
 
-Comments should explain **why** something is done when the code itself does not make the reason obvious.
+Comments should explain why something is done when the code itself does not make the reason obvious.
 
 ```python
 # Retry because the external API occasionally times out.
 response = fetch_data()
-```
-
-Avoid comments that merely repeat obvious code.
-
-```python
-# Add 1 to count
-count += 1
 ```
 
 ---
@@ -1353,152 +1053,9 @@ def calculate_square(number):
 
 ---
 
-# Python Cheatsheet Summary
 
-## List / Array Methods
+# 8. References:
+- Python full course (https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=r3B9DBf4ZqrKTXhz)
 
-```python
-items.append(value)
-items.extend(iterable)
-items.insert(index, value)
-items.remove(value)
-items.pop()
-items.pop(index)
-items.clear()
-items.index(value)
-items.count(value)
-items.sort()
-items.sort(reverse=True)
-items.reverse()
-items.copy()
-```
-
----
-
-## String Methods
-
-```python
-text.upper()
-text.lower()
-text.title()
-text.capitalize()
-text.swapcase()
-
-text.strip()
-text.lstrip()
-text.rstrip()
-
-text.find(value)
-text.index(value)
-text.count(value)
-
-text.replace(old, new)
-text.split(separator)
-separator.join(iterable)
-
-text.startswith(value)
-text.endswith(value)
-
-text.isalpha()
-text.isdigit()
-text.isalnum()
-text.isspace()
-```
-
----
-
-## OOP
-
-```python
-class Student:
-    class_variable = "value"
-
-    def __init__(self, name):
-        self.name = name
-
-    def instance_method(self):
-        return self.name
-
-    @classmethod
-    def class_method(cls):
-        return cls.class_variable
-
-    @staticmethod
-    def static_method():
-        return "Static method"
-```
-
----
-
-## Decorator
-
-```python
-from functools import wraps
-
-
-def decorator(func):
-
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        result = func(*args, **kwargs)
-        return result
-
-    return wrapper
-```
-
-Usage:
-
-```python
-@decorator
-def my_function():
-    pass
-```
-
----
-
-## Virtual Environment
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-deactivate
-```
-
----
-
-## pip
-
-```bash
-python3 -m pip install package_name
-python3 -m pip uninstall package_name
-python3 -m pip list
-python3 -m pip show package_name
-python3 -m pip install --upgrade package_name
-python3 -m pip freeze > requirements.txt
-python3 -m pip install -r requirements.txt
-```
-
----
-
-## PEP 8
-
-```text
-Variables/functions: snake_case
-Classes: PascalCase
-Constants: UPPER_CASE
-Indentation: 4 spaces
-Imports: At the top of the file
-Whitespace: Use around operators
-Commas: Follow with a space
-Comments: Explain why, not obvious code
-Docstrings: Document public APIs where useful
-Line length: Keep lines reasonably short
-```
-
-# Conclusion
-
-Python's simplicity does not mean that its ecosystem and language features are simplistic. Lists and strings provide powerful built-in operations for data manipulation, while object-oriented programming helps organize complex applications through classes, objects, inheritance, encapsulation, polymorphism, and abstraction. Decorators enable reusable behavior around functions and methods.
-
-Virtual environments and `pip` are essential tools for managing project dependencies and avoiding conflicts between applications. Finally, following PEP 8 helps developers write code that is consistent, readable, and easier to maintain.
-
-Together, these concepts form an important foundation for writing professional Python applications.
+- W3School (https://www.w3schools.com/python/)
+- python.org (https://docs.python.org/3/tutorial/index.html)
