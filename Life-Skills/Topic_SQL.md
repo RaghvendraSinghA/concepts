@@ -209,6 +209,36 @@ A JOIN combines rows from two or more tables using a related column.
 Returns only matching rows.
 
 ```sql
+CREATE TABLE Departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(100)
+);
+
+
+INSERT INTO Departments
+VALUES
+(1, 'Engineering'),
+(2, 'HR'),
+(3, 'Finance');
+
+
+CREATE TABLE Employees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    salary DECIMAL(10,2),
+    department_id INT,
+    FOREIGN KEY (department_id)
+        REFERENCES Departments(department_id)
+);
+
+INSERT INTO Employees
+VALUES
+(101, 'Alice', 70000, 1),
+(102, 'Bob', 60000, 1),
+(103, 'Charlie', 50000, 2),
+(104, 'David', 80000, 3),
+(105, 'Eva', 55000, 2);
+
 SELECT
     e.employee_id,
     e.name,
