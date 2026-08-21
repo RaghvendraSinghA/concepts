@@ -23,7 +23,7 @@ Python supports object-oriented programming and provides features such as:
 
 ## 1.1 What Is a Class?
 
-A **class** is a blueprint or template used to create objects.
+A class is a blueprint or template used to create objects.
 
 For example, a `Car` class can define common properties and behaviors of cars.
 
@@ -38,24 +38,12 @@ The `pass` keyword is used as a placeholder when a class or function has no impl
 
 ## 1.2 What Is an Object?
 
-An **object** is an instance of a class.
+An bject is an instance of a class.
 
 ```python
-class Car:
-    pass
-
-
 car1 = Car()
 car2 = Car()
 ```
-
-Here:
-
-* `Car` is the class.
-* `car1` is an object of `Car`.
-* `car2` is another object of `Car`.
-
-Each object is created independently.
 
 ---
 
@@ -75,77 +63,15 @@ Creating an object:
 ```python
 student1 = Student("Ravi", 22)
 
-print(student1.name)
-print(student1.age)
-```
-
-Output:
-
-```text
-Ravi
-22
-```
-
-When this statement runs:
-
-```python
-student1 = Student("Ravi", 22)
-```
-
-Python effectively creates an object and calls:
-
-```python
-__init__(student1, "Ravi", 22)
+print(student1.name)    #op-> Ravi
+print(student1.age)    #op-> 22
 ```
 
 The first argument, `self`, refers to the object currently being initialized.
 
 ---
 
-# 3. Understanding `self`
-
-`self` represents the **current instance of a class**.
-
-```python
-class Student:
-    def __init__(self, name):
-        self.name = name
-
-    def introduce(self):
-        print(f"My name is {self.name}")
-```
-
-Usage:
-
-```python
-student = Student("Ravi")
-
-student.introduce()
-```
-
-Output:
-
-```text
-My name is Ravi
-```
-
-When calling:
-
-```python
-student.introduce()
-```
-
-Python internally passes the object:
-
-```python
-Student.introduce(student)
-```
-
-Therefore, `self` allows instance methods to access the data belonging to a particular object.
-
----
-
-# 4. Instance Variables
+# 3. Instance Variables
 
 Instance variables belong to individual objects.
 
@@ -164,36 +90,15 @@ student2 = Student("Amit", 24)
 Each object has its own values.
 
 ```python
-print(student1.name)
-print(student2.name)
+print(student1.name)    #op-> Ravi
+print(student2.name)    #op-> Amit
 ```
 
-Output:
 
-```text
-Ravi
-Amit
-```
-
-Changing one object's instance variable does not change another object's variable.
-
-```python
-student1.name = "Rahul"
-
-print(student1.name)
-print(student2.name)
-```
-
-Output:
-
-```text
-Rahul
-Amit
-```
 
 ---
 
-# 5. Instance Methods
+# 4. Instance Methods
 
 An instance method operates on a particular object and receives `self` as its first parameter.
 
@@ -202,35 +107,13 @@ class BankAccount:
     def __init__(self, balance):
         self.balance = balance
 
-    def deposit(self, amount):
-        self.balance += amount
-
-    def withdraw(self, amount):
-        self.balance -= amount
-
-    def display_balance(self):
-        print(self.balance)
-```
-
-Usage:
-
-```python
 account = BankAccount(1000)
-
-account.deposit(500)
-account.withdraw(200)
-account.display_balance()
-```
-
-Output:
-
-```text
-1300
+account.display_balance()    #op-> 1000
 ```
 
 ---
 
-# 6. Class Variables
+# 5. Class Variables
 
 A class variable belongs to the class and is generally shared by all instances.
 
@@ -240,62 +123,20 @@ class Employee:
 
     def __init__(self, name):
         self.name = name
-```
 
-Creating objects:
-
-```python
 employee1 = Employee("Ravi")
 employee2 = Employee("Amit")
+
+# Accessing the class variable:
+
+print(employee1.company) #op->ABC Technologies
+print(employee2.company) #op->ABC Technologies
+print(Employee.company). #op->ABC Technologies
 ```
-
-Accessing the class variable:
-
-```python
-print(employee1.company)
-print(employee2.company)
-print(Employee.company)
-```
-
-Output:
-
-```text
-ABC Technologies
-ABC Technologies
-ABC Technologies
-```
-
-The variable `company` belongs to the `Employee` class.
 
 ---
 
-# 7. Instance Variables vs Class Variables
-
-| Instance Variable                      | Class Variable                    |
-| -------------------------------------- | --------------------------------- |
-| Belongs to an object                   | Belongs to the class              |
-| Each object can have a different value | Usually shared by all objects     |
-| Created using `self.variable`          | Created directly inside the class |
-| Accessed through an object             | Can be accessed through the class |
-
-Example:
-
-```python
-class Employee:
-    company = "ABC"
-
-    def __init__(self, name):
-        self.name = name
-```
-
-Here:
-
-* `company` is a class variable.
-* `name` is an instance variable.
-
----
-
-# 8. Class Methods
+# 6. Class Methods
 
 A class method works with the class rather than a specific instance.
 
@@ -308,27 +149,21 @@ class Employee:
     @classmethod
     def change_company(cls, new_company):
         cls.company = new_company
-```
 
-Usage:
+    #These classmethods are shared to instance object too.
 
-```python
 Employee.change_company("XYZ Technologies")
 
-print(Employee.company)
-```
+print(Employee.company) #op-> XYZ Technologies
 
-Output:
-
-```text
-XYZ Technologies
 ```
 
 The `cls` parameter refers to the current class.
+`cls.variablenameofclass` inside classmethod to access class variables.
 
 ---
 
-# 9. Static Methods
+# 7. Static Methods
 
 A static method does not automatically receive `self` or `cls`.
 
@@ -340,55 +175,48 @@ class Calculator:
     @staticmethod
     def add(a, b):
         return a + b
-```
 
-Usage:
-
-```python
-result = Calculator.add(10, 20)
+result = Calculator.add(10, 20)    # op-> 30
 
 print(result)
 ```
 
-Output:
-
-```text
-30
-```
-
-Static methods are useful for utility functionality logically related to a class.
-
----
-
-# 10. Instance Methods vs Class Methods vs Static Methods
-
-| Method Type     | First Parameter    | Works With                |
-| --------------- | ------------------ | ------------------------- |
-| Instance Method | `self`             | Object data               |
-| Class Method    | `cls`              | Class data                |
-| Static Method   | None automatically | Independent utility logic |
-
-Example:
+static methods cannot access `cls` of class but, they can directly access class variables.
 
 ```python
-class Example:
-    class_variable = 100
-
-    def instance_method(self):
-        return self.class_variable
-
-    @classmethod
-    def class_method(cls):
-        return cls.class_variable
 
     @staticmethod
-    def static_method():
-        return "Hello"
+    def add(a, b):
+        return ClassName.variablename
+
 ```
+
+static methods cannot access `self` of instance but, they can access object variables
+if u create an object and pass them to it.
+
+```python
+
+class Test():
+
+    @staticmethod
+    def print_name(obj):
+        return obj.name
+
+    def __init__(self, name):
+        self.name
+
+x = Test("Ravi")
+
+print(Test.print_name(x))
+
+```
+
+Static methods are useful for utility functionality logically related to a class like helper function while classmethods are used for class logic like math class.
+In static method you pass parameters, No self or cls.It calculate with logic and return.
 
 ---
 
-# 11. Encapsulation
+# 8. Encapsulation
 
 Encapsulation means combining data and methods inside a class and controlling how the data is accessed or modified.
 
@@ -400,14 +228,12 @@ Python uses naming conventions to indicate access levels.
 class Student:
     def __init__(self):
         self.name = "Ravi"
-```
 
-The attribute can be accessed directly.
+#The attribute can be accessed directly.
 
-```python
 student = Student()
 
-print(student.name)
+print(student.name) #op-> Ravi
 ```
 
 ---
@@ -427,7 +253,7 @@ The underscore is mainly a convention; Python does not strictly prevent access.
 ```python
 student = Student()
 
-print(student._name)
+print(student._name)    #op-> Ravi
 ```
 
 ---
@@ -447,20 +273,22 @@ Direct access using the original name does not work normally:
 ```python
 account = BankAccount(1000)
 
-# print(account.__balance)
+# print(account.__balance)        #op-> error
 ```
 
 Python internally changes the attribute name approximately to:
 
 ```python
 account._BankAccount__balance
-```
 
-This mechanism is called **name mangling**.
+#This mechanism is called name mangling.
+
+#But, you can access like this print(account._BankAccount__balance)   op-> no error
+```
 
 ---
 
-# 12. Getters and Setters
+# 9. Getters and Setters
 
 Getters and setters provide controlled access to attributes.
 
@@ -475,21 +303,17 @@ class BankAccount:
     def set_balance(self, balance):
         if balance >= 0:
             self.__balance = balance
-```
 
-Usage:
-
-```python
 account = BankAccount(1000)
 
 account.set_balance(2000)
 
-print(account.get_balance())
+print(account.get_balance()) #op->2000
 ```
 
 ---
 
-# 13. The `@property` Decorator
+# 10. The `@property` Decorator
 
 Python provides a more natural way to create getters and setters using `@property`.
 
@@ -508,39 +332,31 @@ class BankAccount:
             raise ValueError("Balance cannot be negative")
 
         self._balance = value
-```
 
-Usage:
-
-```python
 account = BankAccount(1000)
 
-print(account.balance)
+print(account.balance)    #op-> 1000
 
 account.balance = 2000
 
-print(account.balance)
+print(account.balance)    #op-> 2000
 ```
 
 The code looks like normal attribute access, but the getter and setter methods execute internally.
 
 ---
 
-# 14. Inheritance
+# 11. Inheritance
 
 Inheritance allows one class to acquire and reuse the properties and methods of another class.
 
-The existing class is called the:
+The existing class is called:
 
-* Parent class
-* Base class
-* Superclass
+* Parent class or Base class or Superclass
 
 The new class is called the:
 
-* Child class
-* Derived class
-* Subclass
+* Child class or Derived class or Subclass
 
 Example:
 
@@ -552,25 +368,15 @@ class Animal:
 
 class Dog(Animal):
     pass
-```
 
-Since `Dog` inherits from `Animal`, it can use the `eat()` method.
-
-```python
 dog = Dog()
 
-dog.eat()
-```
-
-Output:
-
-```text
-Animal is eating
+dog.eat()    #op-> Animal is eating    
 ```
 
 ---
 
-# 15. Method Overriding
+# 12. Method Overriding
 
 A child class can provide its own implementation of a parent method.
 
@@ -583,27 +389,17 @@ class Animal:
 class Dog(Animal):
     def speak(self):
         print("Dog barks")
-```
 
-Usage:
-
-```python
 dog = Dog()
 
-dog.speak()
-```
-
-Output:
-
-```text
-Dog barks
+dog.speak() #op-> Dog barks
 ```
 
 The child class method overrides the parent class method.
 
 ---
 
-# 16. The `super()` Function
+# 13. The `super()` Function
 
 The `super()` function allows a child class to access methods or constructors from its parent class.
 
@@ -624,24 +420,17 @@ Usage:
 ```python
 dog = Dog("Rocky", "Labrador")
 
-print(dog.name)
-print(dog.breed)
-```
-
-Output:
-
-```text
-Rocky
-Labrador
+print(dog.name)    #op->Rocky
+print(dog.breed)    #op->Labrador
 ```
 
 `super().__init__(name)` initializes the parent class portion of the object.
 
 ---
 
-# 17. Types of Inheritance
+# 14. Types of Inheritance
 
-## 17.1 Single Inheritance
+## 14.1 Single Inheritance
 
 One child inherits from one parent.
 
@@ -656,7 +445,7 @@ class Dog(Animal):
 
 ---
 
-## 17.2 Multilevel Inheritance
+## 14.2 Multilevel Inheritance
 
 A class inherits from another child class.
 
@@ -675,7 +464,7 @@ class Dog(Mammal):
 
 ---
 
-## 17.3 Multiple Inheritance
+## 14.3 Multiple Inheritance
 
 A class inherits from more than one parent.
 
@@ -692,20 +481,20 @@ class Mother:
 
 class Child(Father, Mother):
     pass
-```
 
-Usage:
 
-```python
 child = Child()
 
 child.father_method()
 child.mother_method()
 ```
 
+What if both have same method?
+Then Father class method will be executed bcoz his order is first.
+
 ---
 
-## 17.4 Hierarchical Inheritance
+## 14.4 Hierarchical Inheritance
 
 Multiple child classes inherit from one parent.
 
@@ -724,9 +513,9 @@ class Cat(Animal):
 
 ---
 
-# 18. Polymorphism
+# 15. Polymorphism
 
-Polymorphism means **one interface with multiple forms of behavior**.
+Polymorphism means one interface with multiple forms of behavior.
 
 Different objects can respond differently to the same method call.
 
@@ -739,27 +528,21 @@ class Dog:
 class Cat:
     def speak(self):
         return "Meow"
-```
 
-```python
+
 animals = [Dog(), Cat()]
 
 for animal in animals:
     print(animal.speak())
+
+
+#Output:
+# Bark
+# Meow
 ```
-
-Output:
-
-```text
-Bark
-Meow
-```
-
-The same method name, `speak()`, produces different behavior.
-
 ---
 
-# 19. Duck Typing
+# 16. Duck Typing
 
 Python supports duck typing.
 
@@ -791,11 +574,10 @@ make_sound(Dog())
 make_sound(Cat())
 ```
 
-The function does not need to know the exact class of the object. It only requires the object to have a `speak()` method.
 
 ---
 
-# 20. Abstraction
+# 17. Abstraction
 
 Abstraction means exposing only essential behavior while hiding unnecessary implementation details.
 
@@ -839,7 +621,7 @@ The abstract `Payment` class defines what subclasses must do without specifying 
 
 ---
 
-# 21. Composition
+# 18. Composition/Aggregation
 
 Composition is an OOP concept where one object contains or uses another object.
 
@@ -852,25 +634,15 @@ class Engine:
 
 
 class Car:
-    def __init__(self):
+    def __init__(self,):
         self.engine = Engine()
 
     def start(self):
         self.engine.start()
-```
 
-Usage:
-
-```python
 car = Car()
 
-car.start()
-```
-
-Output:
-
-```text
-Engine started
+car.start()    #op->Engine started
 ```
 
 Composition represents a **has-a relationship**.
@@ -885,190 +657,24 @@ Inheritance generally represents an **is-a relationship**.
 Dog is an Animal
 ```
 
----
+Dependency
 
-# 22. Complete OOP Example
+Car USES-A Logger
 
-The following example combines several OOP concepts.
-
-```python
-class BankAccount:
-    bank_name = "Python Bank"
-
-    def __init__(self, account_holder, balance=0):
-        self.account_holder = account_holder
-        self._balance = balance
-
-    @property
-    def balance(self):
-        return self._balance
-
-    def deposit(self, amount):
-        if amount <= 0:
-            raise ValueError("Deposit amount must be positive")
-
-        self._balance += amount
-
-    def withdraw(self, amount):
-        if amount <= 0:
-            raise ValueError("Withdrawal amount must be positive")
-
-        if amount > self._balance:
-            raise ValueError("Insufficient balance")
-
-        self._balance -= amount
-
-    def display_info(self):
-        print(f"Account holder: {self.account_holder}")
-        print(f"Balance: {self._balance}")
-
-
-class SavingsAccount(BankAccount):
-    def __init__(self, account_holder, balance=0, interest_rate=0.05):
-        super().__init__(account_holder, balance)
-        self.interest_rate = interest_rate
-
-    def add_interest(self):
-        interest = self._balance * self.interest_rate
-        self._balance += interest
-```
-
-Usage:
+It means it doesn't inherit or create object automatically.It asks for object in parameter while creating class object.
 
 ```python
-account = SavingsAccount("Ravi", 1000)
-
-account.deposit(500)
-account.withdraw(200)
-account.add_interest()
-
-account.display_info()
-```
-
-This example demonstrates:
-
-* Class creation
-* Objects
-* Constructors
-* Instance variables
-* Class variables
-* Instance methods
-* Encapsulation
-* Properties
-* Inheritance
-* Method reuse through `super()`
-
----
-
-# 23. Four Main Principles of OOP
-
-| Principle         | Meaning                                                   |
-| ----------------- | --------------------------------------------------------- |
-| **Encapsulation** | Combining data and methods and controlling access to data |
-| **Inheritance**   | Creating new classes based on existing classes            |
-| **Polymorphism**  | The same interface producing different behavior           |
-| **Abstraction**   | Hiding unnecessary implementation details                 |
-
----
-
-# 24. OOP Cheatsheet
-
-## Creating a Class
-
-```python
-class MyClass:
-    pass
-```
-
-## Creating an Object
-
-```python
-obj = MyClass()
-```
-
-## Constructor
-
-```python
-def __init__(self):
-    pass
-```
-
-## Instance Variable
-
-```python
-self.name = "Ravi"
-```
-
-## Class Variable
-
-```python
-class MyClass:
-    value = 10
-```
-
-## Instance Method
-
-```python
-def display(self):
-    pass
-```
-
-## Class Method
-
-```python
-@classmethod
-def method(cls):
-    pass
-```
-
-## Static Method
-
-```python
-@staticmethod
-def method():
-    pass
-```
-
-## Inheritance
-
-```python
-class Child(Parent):
-    pass
-```
-
-## Parent Constructor
-
-```python
-super().__init__()
-```
-
-## Property
-
-```python
-@property
-def value(self):
-    return self._value
-```
-
-## Abstract Class
-
-```python
-from abc import ABC, abstractmethod
-
-
-class MyClass(ABC):
-
-    @abstractmethod
-    def method(self):
-        pass
+class DependentClass():
+    def __init__(self,other_class_dependency_object):
+        other_class_dependency_object.fn_name()
+        # we don't store it in self just use it temporarily.
+    
 ```
 
 ---
 
-# Conclusion
 
-Object-Oriented Programming is an important approach for designing structured and maintainable Python applications. Classes provide blueprints for objects, while objects combine state and behavior.
 
-Python's OOP features include instance and class variables, different types of methods, encapsulation, inheritance, polymorphism, abstraction, and composition. Understanding these concepts helps developers build reusable, modular, and scalable software.
 
-The four fundamental principles—**encapsulation, inheritance, polymorphism, and abstraction**—form the foundation of object-oriented programming and are widely used in real-world Python applications.
+
+
