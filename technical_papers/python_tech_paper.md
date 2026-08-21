@@ -34,7 +34,8 @@ from array import array
 
 numbers = array('i', [10, 20, 30])
 ```
-    'i' means the array stores signed integers
+    'i' means the array stores signed integers, you cannot store string
+        or another object in it.
 ---
 
 ## 1.2 Common List Methods
