@@ -1,8 +1,8 @@
-# Python Technical Paper and Cheatsheet
+# Python Technical Paper
 
 ## Introduction
 
-Python is a high-level, interpreted programming language known for its simple syntax, readability, and extensive ecosystem. It supports multiple programming paradigms, including procedural programming, object-oriented programming, and functional programming.
+Python is a high-level, interpreted programming language known for its simple syntax and readability. It supports multiple programming paradigms, including procedural programming, object-oriented programming, and functional programming.
 
 This paper provides a practical overview and cheatsheet covering commonly used Python concepts:
 
