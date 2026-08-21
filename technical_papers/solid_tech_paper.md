@@ -2,42 +2,39 @@
 
 ## Introduction
 
-**SOLID** is a collection of five object-oriented design principles that help developers create software that is easier to:
+SOLID is a collection of five object-oriented design principles that help developers create software that is easier to:
 
-* Understand
-* Maintain
-* Test
-* Extend
-* Modify
+- Understand
+- Maintain
+- Test
+- Extend
+- Modify
 
 SOLID stands for:
 
-1. **S** — Single Responsibility Principle (SRP)
-2. **O** — Open/Closed Principle (OCP)
-3. **L** — Liskov Substitution Principle (LSP)
-4. **I** — Interface Segregation Principle (ISP)
-5. **D** — Dependency Inversion Principle (DIP)
+- S —> Single Responsibility Principle (SRP)
+- O —> Open/Closed Principle (OCP)
+- L —> Liskov Substitution Principle (LSP)
+- I —> Interface Segregation Principle (ISP)
+- D —> Dependency Inversion Principle (DIP)
 
-These principles are guidelines for designing classes and modules. They are not strict rules that must always be followed in every situation.
+These principles are guidelines for designing classes and modules. They are not strict rules that must always be followed in every situation.Sometimes we do trade-offs when necessary.
 
 ---
 
 # 1. Single Responsibility Principle (SRP)
-
-## Definition
-
-> A class should have one responsibility and, therefore, one primary reason to change.
+    A class should have one responsibility and, therefore, one primary reason to change.
 
 A class should focus on one job.
 
-For example, consider a `User` class. If the class:
+For example if  `User` class have all these things:
 
-* Stores user information
-* Validates user data
-* Saves users to a database
-* Sends emails
+- Stores user information
+- Validates user data
+- Saves users to a database
+- Sends emails
 
-then it has multiple responsibilities.
+then, it has multiple responsibilities and bad design according to SRP.
 
 ---
 
@@ -105,44 +102,17 @@ class EmailService:
         print(f"Sending welcome email to {user.email}")
 ```
 
-Usage:
-
-```python
-user = User("Ravi", "ravi@example.com")
-
-validator = UserValidator()
-repository = UserRepository()
-email_service = EmailService()
-
-if validator.validate(user):
-    repository.save(user)
-    email_service.send_welcome_email(user)
-```
-
-### Key Idea
-
-Each class has one focused responsibility:
-
-```text
-User             → Stores user data
-UserValidator    → Validates users
-UserRepository   → Stores users
-EmailService     → Sends emails
-```
-
 ---
 
 # 2. Open/Closed Principle (OCP)
+    Software entities should be open for extension but closed for modification.
 
-## Definition
-
-> Software entities should be open for extension but closed for modification.
-
-This means that we should try to add new behavior by extending existing code rather than repeatedly modifying tested code.
+    This means that we should try to add new behaviour by extending existing code 
+    rather than repeatedly modifying tested code.
 
 ---
 
-## Bad Example
+## This is Bad Example
 
 Suppose we calculate the area of different shapes.
 
@@ -215,17 +185,6 @@ class AreaCalculator:
         return shape.area()
 ```
 
-Usage:
-
-```python
-calculator = AreaCalculator()
-
-rectangle = Rectangle(10, 5)
-circle = Circle(7)
-
-print(calculator.calculate(rectangle))
-print(calculator.calculate(circle))
-```
 
 Now we can add a new shape without changing `AreaCalculator`.
 
@@ -239,22 +198,13 @@ class Triangle(Shape):
         return 0.5 * self.base * self.height
 ```
 
-### Key Idea
-
-```text
-Existing code → Stable
-New behavior  → Add new classes
-```
-
 ---
 
 # 3. Liskov Substitution Principle (LSP)
+    
+    Objects of a subclass should be usable in place of objects of their parent class         without breaking the program.
 
-## Definition
-
-> Objects of a subclass should be usable in place of objects of their parent class without breaking the program.
-
-If `Child` inherits from `Parent`, code expecting a `Parent` should also work correctly with a `Child`.
+If `Child` inherits from `Parent`, code expecting a `Parent` should also work correctly with a `Child`.Child object should be able to replace parent object if required.
 
 ---
 
@@ -346,14 +296,6 @@ penguin = Penguin()
 sparrow.fly()
 penguin.eat()
 ```
-
-### Key Idea
-
-A subclass should not:
-
-* Break expected behavior.
-* Raise errors for normal parent behavior.
-* Require special handling to work where the parent is expected.
 
 ---
 
@@ -457,27 +399,16 @@ class RobotWorker(Workable):
         print("Working")
 ```
 
-### Key Idea
-
-```text
-Large interface
-      ↓
-Small focused interfaces
-      ↓
-Classes implement only what they need
-```
-
 ---
 
 # 5. Dependency Inversion Principle (DIP)
-
-## Definition
-
-> High-level modules should not depend directly on low-level modules. Both should depend on abstractions.
-
-Also:
-
-> Abstractions should not depend on details. Details should depend on abstractions.
+    High-level modules should not depend directly on low-level modules. Both should
+    depend on abstractions.
+    Also, abstraction should not depend on details. Details should depend on                 abstractions.
+    
+    -abstraction means how things should be done.
+    -details means code implementation or logic of doing that thing.
+    
 
 ---
 
@@ -626,7 +557,7 @@ The `UserService` does not need to change.
 
 ## Dependency Injection
 
-The previous example uses **dependency injection**.
+The previous example uses dependency injection.
 
 Instead of creating the dependency internally:
 
@@ -658,10 +589,10 @@ UserService → UserRepository abstraction
 
 ### Important Note
 
-**Dependency Injection (DI) is a technique often used to implement Dependency Inversion (DIP), but they are not exactly the same thing.**
+Dependency Injection (DI) is a technique often used to implement Dependency Inversion (DIP), but they are not exactly the same thing.
 
-* **DIP** is a design principle.
-* **Dependency Injection** is a technique for supplying dependencies from outside.
+- DIP is a design principle.
+- Dependency Injection is a technique for supplying dependencies from outside.
 
 ---
 
