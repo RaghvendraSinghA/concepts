@@ -47,3 +47,13 @@
 
 ---
 - `sorted(iterable,key,reverse`) -> sorts and returns new list, doesn't modify </br> original object.Works with all iterable.
+
+
+---
+
+
+# References:
+- Python full course (https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=r3B9DBf4ZqrKTXhz)
+
+- W3School (https://www.w3schools.com/python/)
+- python.org (https://docs.python.org/3/tutorial/index.html)
