@@ -425,6 +425,7 @@ print(dog.breed)    #op->Labrador
 ```
 
 `super().__init__(name)` initializes the parent class portion of the object.
+It passes self of child to parent and parent adds properties to self of child.
 
 ---
 
