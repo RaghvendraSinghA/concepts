@@ -29,6 +29,7 @@
    - GROUP BY
    - HAVING
 6. Combining Joins and Aggregations
+7. References
 ---
 
 # 1. Introduction to SQL
@@ -556,3 +557,33 @@ HAVING COUNT(e.employee_id) > 1;
 
 ---
 ---
+
+# References
+
+The following official documentation was used as a reference for SQL syntax, joins, aggregate functions, and database concepts.
+
+## General SQL and PostgreSQL
+
+1. [PostgreSQL Documentation — SQL Commands](https://www.postgresql.org/docs/current/sql-commands.html)
+2. [PostgreSQL Documentation — SELECT](https://www.postgresql.org/docs/current/sql-select.html)
+3. [PostgreSQL Documentation — CREATE TABLE](https://www.postgresql.org/docs/current/sql-createtable.html)
+4. [PostgreSQL Documentation — INSERT](https://www.postgresql.org/docs/current/sql-insert.html)
+5. [PostgreSQL Documentation — UPDATE](https://www.postgresql.org/docs/current/sql-update.html)
+6. [PostgreSQL Documentation — DELETE](https://www.postgresql.org/docs/current/sql-delete.html)
+
+## Keys and Constraints
+
+7. [PostgreSQL Documentation — Constraints, Primary Keys, and Foreign Keys](https://www.postgresql.org/docs/current/ddl-constraints.html)
+
+## SQL Joins
+
+8. [PostgreSQL Documentation — Table Expressions and JOIN Operations](https://www.postgresql.org/docs/current/queries-table-expressions.html)
+9. [MySQL Reference Manual — JOIN Clause](https://dev.mysql.com/doc/refman/en/join.html)
+10. [SQLite Documentation — SELECT and JOIN Operations](https://www.sqlite.org/lang_select.html)
+
+## Aggregate Functions
+
+11. [PostgreSQL Documentation — Aggregate Functions](https://www.postgresql.org/docs/current/functions-aggregate.html)
+12. [PostgreSQL Documentation — GROUP BY and HAVING](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP)
+13. [MySQL Reference Manual — Aggregate Functions](https://dev.mysql.com/doc/refman/en/aggregate-functions.html)
+14. [SQLite Documentation — Aggregate Functions](https://www.sqlite.org/lang_aggfunc.html)
