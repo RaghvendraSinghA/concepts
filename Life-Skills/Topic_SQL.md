@@ -60,18 +60,12 @@ Popular relational databases include:
 A table stores data in rows and columns.
 
 ```sql
-CREATE TABLE Departments (
-    department_id INT PRIMARY KEY,
-    department_name VARCHAR(100)
-);
 
 CREATE TABLE Employees (
     employee_id INT PRIMARY KEY,
     name VARCHAR(100),
     salary DECIMAL(10,2),
     department_id INT,
-    FOREIGN KEY (department_id)
-        REFERENCES Departments(department_id)
 );
 ```
 
@@ -81,28 +75,16 @@ Explanation:
 - `VARCHAR(100)` stores text up to 100 characters.
 - `DECIMAL(10,2)` stores numbers with decimal places.
 - `PRIMARY KEY` uniquely identifies each row.
-- `FOREIGN KEY` links two tables.
 
 ---
 
 ## Inserting Data
 
 ```sql
-INSERT INTO Departments
-VALUES
-(1,'Engineering'),
-(2,'HR'),
-(3,'Finance');
-```
-
-```sql
 INSERT INTO Employees
 VALUES
 (101,'Alice',70000,1),
 (102,'Bob',60000,1),
-(103,'Charlie',50000,2),
-(104,'David',80000,3),
-(105,'Eva',55000,2);
 ```
 
 ---
@@ -144,15 +126,6 @@ SELECT *
 FROM Employees
 WHERE department_id = 1
 AND salary > 65000;
-```
-
-Using OR.
-
-```sql
-SELECT *
-FROM Employees
-WHERE department_id = 1
-OR department_id = 2;
 ```
 
 ---
@@ -216,23 +189,12 @@ WHERE employee_id = 105;
 
 # 3. Sample Database
 
-## Departments
-
-| department_id | department_name |
-|--------------:|-----------------|
-| 1 | Engineering |
-| 2 | HR |
-| 3 | Finance |
-
 ## Employees
 
 | employee_id | name | salary | department_id |
 |------------:|------|--------:|--------------:|
 |101|Alice|70000|1|
 |102|Bob|60000|1|
-|103|Charlie|50000|2|
-|104|David|80000|3|
-|105|Eva|55000|2|
 
 ---
 
