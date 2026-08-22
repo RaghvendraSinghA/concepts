@@ -2,13 +2,7 @@
 
 ## Introduction
 
-SOLID is a collection of five object-oriented design principles that help developers create software that is easier to:
-
-- Understand
-- Maintain
-- Test
-- Extend
-- Modify
+SOLID is a collection of five object-oriented design principles that help developers create software that is easier to understand, maintain, test, extend and modify.
 
 SOLID stands for:
 
@@ -23,7 +17,7 @@ These principles are guidelines for designing classes and modules. They are not 
 ---
 
 # 1. Single Responsibility Principle (SRP)
-    A class should have one responsibility and, therefore, one primary reason to change.
+    A class should have one responsibility and therefore, one primary reason to change.
 
 A class should focus on one job.
 
@@ -108,7 +102,7 @@ class EmailService:
     Software entities should be open for extension but closed for modification.
 
     This means that we should try to add new behaviour by extending existing code 
-    rather than repeatedly modifying tested code.
+    rather than repeatedly modifying existing code.
 
 ---
 
