@@ -202,7 +202,7 @@ class Triangle(Shape):
 
 # 3. Liskov Substitution Principle (LSP)
     
-    Objects of a subclass should be usable in place of objects of their parent class         without breaking the program.
+    Objects of a subclass should be usable in place of objects of their parent class without breaking the program.
 
 If `Child` inherits from `Parent`, code expecting a `Parent` should also work correctly with a `Child`.Child object should be able to replace parent object if required.
 
@@ -300,14 +300,11 @@ penguin.eat()
 ---
 
 # 4. Interface Segregation Principle (ISP)
+    A client should not be forced to depend on methods it does not use.
 
-## Definition
+    Instead of creating one large interface, create smaller and focused interfaces.
 
-> A client should not be forced to depend on methods it does not use.
-
-Instead of creating one large interface, create smaller and focused interfaces.
-
-Python does not have interfaces in the same way as Java. However, we can represent interfaces using abstract base classes.
+    Python does not have interfaces in the same way as Java. However, we can represent interfaces using abstract base classes.
 
 ---
 
@@ -404,7 +401,7 @@ class RobotWorker(Workable):
 # 5. Dependency Inversion Principle (DIP)
     High-level modules should not depend directly on low-level modules. Both should
     depend on abstractions.
-    Also, abstraction should not depend on details. Details should depend on                 abstractions.
+    Also, abstraction should not depend on details. Details should depend on abstractions.
     
     -abstraction means how things should be done.
     -details means code implementation or logic of doing that thing.
@@ -412,9 +409,7 @@ class RobotWorker(Workable):
 
 ---
 
-## Understanding High-Level and Low-Level Modules
-
-Consider a user registration system.
+Let's say we have a user registration system.
 
 The high-level business logic:
 
@@ -576,306 +571,15 @@ class UserService:
 ```
 
 This makes the dependency replaceable.
+Like we can use either mongoDB object or PostgreSQLDatabase object without any erorr and it is cleaner.
 
-```text
-                    PostgreSQLRepository
-                           ↑
-                           │
-UserService → UserRepository abstraction
-                           │
-                           ↑
-                     MongoDBRepository
-```
 
-### Important Note
 
-Dependency Injection (DI) is a technique often used to implement Dependency Inversion (DIP), but they are not exactly the same thing.
+# References :
 
-- DIP is a design principle.
-- Dependency Injection is a technique for supplying dependencies from outside.
+- Codewitharyan (https://codewitharyan.com/tech-blogs/solid-principles)
+- Medium (https://medium.com/@danaprata/the-l-in-solid-principles-6d55cf101cdb)
+- GeeksForGeeks (https://www.geeksforgeeks.org/system-design/solid-principle-in-programming-understand-with-real-life-examples/)
 
----
 
-# SOLID Principles Together
 
-Consider a simple application.
-
-```text
-                    ┌──────────────────┐
-                    │       SRP        │
-                    │ One responsibility│
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │       OCP        │
-                    │ Extend, don't    │
-                    │ modify repeatedly│
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │       LSP        │
-                    │ Subclasses must  │
-                    │ be substitutable │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │       ISP        │
-                    │ Small interfaces │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │       DIP        │
-                    │ Depend on        │
-                    │ abstractions     │
-                    └──────────────────┘
-```
-
----
-
-# Complete Example Applying Multiple SOLID Principles
-
-The following example demonstrates several SOLID principles together.
-
-## Step 1: Define the User
-
-```python
-class User:
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
-```
-
-This class only represents user data.
-
-**SRP:** The class has one responsibility.
-
----
-
-## Step 2: Create a Validator
-
-```python
-class UserValidator:
-    def validate(self, user):
-        if "@" not in user.email:
-            raise ValueError("Invalid email")
-```
-
-**SRP:** Validation is separate from the `User` object.
-
----
-
-## Step 3: Create a Repository Abstraction
-
-```python
-from abc import ABC, abstractmethod
-
-
-class UserRepository(ABC):
-
-    @abstractmethod
-    def save(self, user):
-        pass
-```
-
-**DIP:** High-level code can depend on this abstraction.
-
----
-
-## Step 4: Create Database Implementations
-
-```python
-class PostgreSQLUserRepository(UserRepository):
-
-    def save(self, user):
-        print(f"Saving {user.name} to PostgreSQL")
-```
-
-Another implementation:
-
-```python
-class MongoDBUserRepository(UserRepository):
-
-    def save(self, user):
-        print(f"Saving {user.name} to MongoDB")
-```
-
-**OCP:** New repositories can be added without modifying the existing service.
-
----
-
-## Step 5: Create the Service
-
-```python
-class UserService:
-    def __init__(self, repository, validator):
-        self.repository = repository
-        self.validator = validator
-
-    def create_user(self, user):
-        self.validator.validate(user)
-        self.repository.save(user)
-```
-
-**DIP:** The service depends on abstractions or replaceable collaborators.
-
-**SRP:** The service coordinates the user creation workflow.
-
----
-
-## Step 6: Use the Application
-
-```python
-repository = PostgreSQLUserRepository()
-validator = UserValidator()
-
-user_service = UserService(
-    repository,
-    validator
-)
-
-user = User(
-    "Ravi",
-    "ravi@example.com"
-)
-
-user_service.create_user(user)
-```
-
-Later, the repository can be changed.
-
-```python
-repository = MongoDBUserRepository()
-
-user_service = UserService(
-    repository,
-    validator
-)
-
-user_service.create_user(user)
-```
-
-`UserService` does not need to be modified.
-
----
-
-# SOLID Cheatsheet
-
-| Principle | Full Name                       | Main Idea                                                  |
-| --------- | ------------------------------- | ---------------------------------------------------------- |
-| **S**     | Single Responsibility Principle | One class should have one primary responsibility           |
-| **O**     | Open/Closed Principle           | Extend behavior without modifying stable code              |
-| **L**     | Liskov Substitution Principle   | Subclasses should correctly replace parent objects         |
-| **I**     | Interface Segregation Principle | Do not force classes to implement unused methods           |
-| **D**     | Dependency Inversion Principle  | Depend on abstractions instead of concrete implementations |
-
----
-
-# Quick Code Patterns
-
-## SRP
-
-```python
-class User:
-    pass
-
-
-class UserValidator:
-    pass
-
-
-class UserRepository:
-    pass
-```
-
----
-
-## OCP
-
-```python
-class Shape:
-    def area(self):
-        raise NotImplementedError
-```
-
-```python
-class Rectangle(Shape):
-    def area(self):
-        return 10
-```
-
-```python
-class Circle(Shape):
-    def area(self):
-        return 20
-```
-
----
-
-## LSP
-
-```python
-class Bird:
-    def eat(self):
-        pass
-
-
-class FlyingBird(Bird):
-    def fly(self):
-        pass
-
-
-class Sparrow(FlyingBird):
-    pass
-
-
-class Penguin(Bird):
-    pass
-```
-
----
-
-## ISP
-
-```python
-class Workable:
-    def work(self):
-        pass
-
-
-class Eatable:
-    def eat(self):
-        pass
-```
-
----
-
-## DIP
-
-```python
-class UserService:
-    def __init__(self, repository):
-        self.repository = repository
-
-    def create_user(self, user):
-        self.repository.save(user)
-```
-
----
-
-# Conclusion
-
-SOLID principles help developers design software with lower coupling and clearer responsibilities.
-
-The principles can be summarized as follows:
-
-* **SRP:** Keep responsibilities focused.
-* **OCP:** Add new behavior through extension.
-* **LSP:** Ensure subclasses preserve the expectations of their parent types.
-* **ISP:** Prefer small, focused interfaces.
-* **DIP:** Make high-level policy depend on abstractions rather than concrete details.
-
-SOLID should not be applied mechanically. The goal is not to create unnecessary classes or abstractions, but to use these principles when they make software easier to understand, modify, test, and extend.
