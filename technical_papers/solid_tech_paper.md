@@ -294,7 +294,7 @@ penguin.eat()
 ---
 
 # 4. Interface Segregation Principle (ISP)
-    A client should not be forced to depend on methods it does not use.
+    A child should not be forced to implement those methods which it does not use.
 
     Instead of creating one large interface, create smaller and focused interfaces.
 
@@ -396,6 +396,9 @@ class RobotWorker(Workable):
     High-level modules should not depend directly on low-level modules. Both should
     depend on abstractions.
     Also, abstraction should not depend on details. Details should depend on abstractions.
+
+    -High-level module : business logic.
+    -Low-level module : implementation logic.
     
     -abstraction means how things should be done.
     -details means code implementation or logic of doing that thing.
