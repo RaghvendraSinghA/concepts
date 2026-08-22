@@ -42,6 +42,7 @@ class User:
 
     def validate(self):
         return "@" in self.email
+        # in keyword searches if @ exist in email string.
 
     def save_to_database(self):
         print(f"Saving {self.name} to database")
