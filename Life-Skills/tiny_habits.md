@@ -42,7 +42,8 @@
     
           Steps I can use to do it are:
           - start with 10 pushup daily before I eat breakfast, takes 2 minutes.
-          - For reward, I will eat egg or banana or chocolate after doing it then, eat breakfast.
+          - For reward, I will eat my favourite food either egg or banana or chocolate 
+            after doing it then, eat breakfast.
 
 ## Q9. Pick one habit that you would like to eliminate or do less of? What are the steps that you can take to make it make the cue invisible or the process unattractive or hard or the response unsatisfying?
     Ans-> I eat a lot of processed food. To eliminate this I will not buy them and bring them to room.
