@@ -7,3 +7,5 @@
 3. solid_tech_paper (SOLID principles).
 
 4. python_cheatsheet.
+
+5. sql concepts technical paper.
