@@ -86,7 +86,20 @@ The total width remains `300px`. It fits border, content and padding in 300px .
 
 HTML elements can participate in layout as block-level or inline-level elements.
 
-### 2.1 Block Elements
+
+### 2.1 Inline Elements
+
+Inline elements generally:
+
+* Remain on the current line.
+* Take only the width required by their content.
+* Are commonly used within text.
+* Doesn't allow to modify its width and height. Padding and margin can be modified.     
+
+  Examples: span, a, strong, label etc.
+
+
+### 2.2 Block Elements
 
 Block elements generally:
 * Start on a new line.
@@ -97,18 +110,7 @@ Block elements generally:
 
 ---
 
-### 2.2 Inline Elements
-
-Inline elements generally:
-
-* Remain on the current line.
-* Take only the width required by their content.
-* Are commonly used within text.     
-
-  Examples: span, a, strong, label etc.
----
-
-### 2.3 `inline-block`
+### 2.3 inline-block
 
 `inline-block` combines characteristics of inline and block layout to an element.
 
