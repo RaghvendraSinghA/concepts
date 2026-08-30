@@ -5,7 +5,7 @@
 - Watching my favourite music video songs.
 - Roaming outside in neighbourhood and eating some food.
 - Spending time with friends.
-- After taking a bath.
+- Take a bath.
 
 ---
 
@@ -20,8 +20,8 @@
 
 ## Question 3 - How do you understand if you are in the Excitement quadrant?
 
-- I feel energetic and motivated and want to keep going.At that time I feel happy,      
-  I try to solve problems with positive attitude.
+- I feel energetic and motivated and want to keep going.At that time I feel happy and         
+  solve problems with positive attitude.
 
 ---
 
@@ -48,13 +48,13 @@
 
 ## Question 6 - Paraphrase the video - "Brain Changing Benefits of Exercise".
 
-- Regular exercise improves memory and learning.
-- Exercise helps the brain create and maintain neural connections.
-- Physical activity can improve mood and reduce stress.
-- Exercise can increase attention and concentration.
-- Exercise can help protect the brain from age-related decline.
+- Physical activity can improve mood, gives energy boost and reduces stress instantly.
+- Regular exercise improves memory, learning and concentration.
+- Exercise can help to protect the brain from age-related decline and diseases like
+  dementia and Alzheimer's disease.
 - Exercise can increase the size of the hippocampus and prefrontal cortex     
   which helps brain to store more information and better decision making.
+- Exercise also makes you physically fit and stronger, which boosts confidence.
 
 
 ---
