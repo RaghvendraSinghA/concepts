@@ -32,7 +32,7 @@
 - Sleep helps the brain to process and store information.
 - Lack of sleep negatively affects concentration and decision-making.
 - Poor sleep can weaken the immune system ,increases speed of ageing and reduces memory power.
-- Sleep should be treated as a necessity.
+- Sleep should be treated as a necessity, not a luxury.
 
 ---
 
@@ -54,14 +54,14 @@
   dementia and Alzheimer's disease.
 - Exercise can increase the size of the hippocampus and prefrontal cortex     
   which helps brain to store more information and better decision making.
-- Exercise also makes you physically fit and stronger, which boosts confidence.
+- Exercise also makes you physically fit and stronger, which also boosts confidence.
 
 
 ---
 
 ## Question 7 - What are some steps you can take to exercise more?
 
-- Start gym exercises with small and achievable goals but, they should make me sweat.
+- Start home-gym exercises with small and achievable goals but, they should make me sweat.
 - I walk 4 km every day, so I don't need to add extra walking to my daily routine.
 - Use stairs instead of elevators when possible.
 - Track my exercise and progress, keeps motivated.
