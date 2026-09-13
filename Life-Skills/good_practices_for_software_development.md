@@ -21,5 +21,6 @@ and be mindful of your teammates' own workload and focus time.
 ### Deep work / focus
 - Silence all non-work notifications, removing distracting apps from your home screen,       
 using a blocking tool (like TimeLimit or Freedom) during work hours, and tracking your time to stay accountable.     
-Make time-table of everything So, I don't forget important works or keep less time for them to do.  
+Make time-table everyday of everything with required time to perform So, I don't forget them or keep less time   
+to complete them.  
 
