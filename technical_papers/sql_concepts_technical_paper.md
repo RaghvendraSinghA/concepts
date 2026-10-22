@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A database is an organized collection of data that allows applications to store, retrieve, modify, and manage information efficiently.
+A database is a collection of data that allows applications to store, retrieve, modify, and manage data efficiently.
 A Database Management System (DBMS) is software responsible for managing databases. Examples include:
 
 * PostgreSQL
@@ -11,11 +11,7 @@ A Database Management System (DBMS) is software responsible for managing databas
 * Oracle Database
 * Microsoft SQL Server
 
-SQL Structured Query Language is used to interact with relational databases. SQL allows us to:
-
-* Create databases and tables
-* Insert data
-* Retrieve data
+SQL Structured Query Language is used to interact with relational databases.
 
 A relational database stores information in tables, where:
 
@@ -30,7 +26,7 @@ A relational database stores information in tables, where:
 
 # 1. ACID Properties
 
-ACID is a set of database transaction properties that ensures reliability, correctness, and data integrity.
+ACID properties are a set of four properties that ensure database **transactions** are processed reliably and correctly :
 
 1. Atomicity
 2. Consistency
@@ -94,10 +90,10 @@ Without proper isolation, one transaction could interfere with another.
 
 The SQL standard defines four isolation levels:
 
-1. Read Uncommitted
-2. Read Committed
-3. Repeatable Read
-4. Serializable
+1. Read Uncommitted ( A transaction can read un-commited value of another transaction)
+2. Read Committed   ( A transaction can read commited value of another transaction )
+3. Repeatable Read  ( If a transaction reads a row more than once, the values of that row remain consistent within that transaction )
+4. Serializable     ( If multiple transactions run parallely then they should behave like they are ran sequentially)
 
 PostgreSQL implements three distinct behaviors internally because its `READ UNCOMMITTED` behaves like `READ COMMITTED`.
 
