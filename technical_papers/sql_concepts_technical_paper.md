@@ -30,7 +30,7 @@ A relational database stores information in tables, where:
 
 # 1. ACID Properties
 
-ACID describes four properties that help database transactions remain reliable:
+ACID is a set of database transaction properties that ensures reliability, correctness, and data integrity.
 
 1. Atomicity
 2. Consistency
